@@ -20,20 +20,17 @@ namespace Blog.Entities.Concrete
 
         public string SeoAuthor { get; set; } = "";
 
-        public string? SeoDescription { get; set; } 
+        public string SeoDescription { get; set; } 
 
         public string SeoTags   { get; set; }="tags";
         public int CategoryId { get; set; }
 
-        public required Category Category { get; set; }
+        public Category Category { get; set; } = new Category();
 
         public int UserId { get; set; }
 
-        public required User User{ get; set; }
-
-
-
-
-        
+        public  User User{ get; set; }=new User();
+       
+         public ICollection<Comment> Comments { get; set; }
     }
 }
