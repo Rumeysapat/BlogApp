@@ -1,3 +1,4 @@
+using System.Text;
 using Blog.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -36,6 +37,27 @@ namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(u => u.IsDeleted).IsRequired();
             builder.Property(u => u.Note).HasMaxLength(500);
             builder.ToTable("Users");
+            builder.HasData(new User
+            {
+                Id = 1,
+                RoleId =1,
+                FirstName="Rumeysa",
+                LastName="Pat",
+                Username="rumeysapat",
+                Email="rumeysapat@gmail.com",
+                IsActive=true,
+                IsDeleted=false,
+                CreatedByName="InitialCreate",
+                CreatedDate=DateTime.Now,
+                ModifiedByName="InitialCreate",
+                ModifiedDate=DateTime.Now,
+                Description ="İlk admin kullanıcı",
+                Note ="Admin kullanıcı",
+                PasswordHash=Encoding.ASCII.GetBytes(s:"0192023a7bbd73250516f069df18b500"),
+                
+
+
+            });
         }
     }
 }

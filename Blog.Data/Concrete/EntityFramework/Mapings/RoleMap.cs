@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Common;
+using System.Runtime.CompilerServices;
+using Blog.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ProgrammersBlog.Entities.Concrete;
 
 namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
 {
@@ -29,6 +26,23 @@ namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(r => r.IsDeleted).IsRequired();
             builder.Property(r => r.Note).HasMaxLength(500);
             builder.ToTable("Roles");
+            builder.HasData(new Role
+            {
+                Id = 1,
+                Name = "Admin",
+                Description = "Admin Rolü tüm haklara sahiptir",
+                IsActive = true,
+                IsDeleted = false,
+                CreatedByName ="Initial Create",
+                CreatedDate= DateTime.Now,
+                ModifiedDate= DateTime.Now,
+                ModifiedByName="Initial Create",
+                Note ="Admin Rolüdür."
+
+
+
+            });
+            
         }
     }
 }
