@@ -2,9 +2,9 @@ using Blog.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Blog.Data.Concrete.EntityFramework.Mapings
+namespace Blog.Data.Concrete.EntityFramework.Mappings
 {
-    public class CategoryMap : IEntityTypeConfiguration<Category>
+    public class CategoryMap:IEntityTypeConfiguration<Category>
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
@@ -23,7 +23,7 @@ namespace Blog.Data.Concrete.EntityFramework.Mapings
             builder.Property(c => c.IsDeleted).IsRequired();
             builder.Property(c => c.Note).HasMaxLength(500);
             builder.ToTable("Categories");
-            
+
             builder.HasData(
                 new Category
                 {

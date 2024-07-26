@@ -1,10 +1,10 @@
-using System.Security.Cryptography;
+using Blog.Data.Concrete.EntityFramework.Mappings;
 using Blog.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Data.Concrete.EntityFramework.Context
 {
-   public class ProgrammersBlogContext:DbContext
+    public class ProgrammersBlogContext:DbContext
    {
     public DbSet<Article> Articles { get; set; }
     public DbSet<Category> Categories { get; set; }
@@ -14,14 +14,26 @@ namespace Blog.Data.Concrete.EntityFramework.Context
 
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 {
-    string connectionString = "Server=(localdb)\\ProjectsV13;Database=ProgrammersBlog;Trusted_Connection=True;AttachDbFilename=/Users/codertayfunpat/Projects/ProrammersBlog/ProgrammersBlog.mdf;";
-    optionsBuilder.UseSqlServer(connectionString);
+    optionsBuilder.UseSqlite("Data Source=blog.db");
 }
 
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        // Mapping klasörünüzdeki mapping dosyalarını burada tanımlayın
+        modelBuilder.ApplyConfiguration(new ArticleMap());
+         modelBuilder.ApplyConfiguration(new CategoryMap());
+          modelBuilder.ApplyConfiguration(new CommentMap());
+           modelBuilder.ApplyConfiguration(new RoleMap());
+          
+            modelBuilder.ApplyConfiguration(new UserMap());
+    }
+}
 
        
     }
-}
+
 
 
 

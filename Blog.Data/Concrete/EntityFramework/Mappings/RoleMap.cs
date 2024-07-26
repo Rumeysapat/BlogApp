@@ -1,10 +1,8 @@
-using System.Data.Common;
-using System.Runtime.CompilerServices;
 using Blog.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
+namespace Blog.Data.Concrete.EntityFramework.Mappings
 {
     public class RoleMap:IEntityTypeConfiguration<Role>
     {
@@ -30,19 +28,15 @@ namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
             {
                 Id = 1,
                 Name = "Admin",
-                Description = "Admin Rolü tüm haklara sahiptir",
+                Description = "Admin Rolü, Tüm Haklara Sahiptir.",
                 IsActive = true,
                 IsDeleted = false,
-                CreatedByName ="Initial Create",
-                CreatedDate= DateTime.Now,
-                ModifiedDate= DateTime.Now,
-                ModifiedByName="Initial Create",
-                Note ="Admin Rolüdür."
-
-
-
+                CreatedByName = "InitialCreate",
+                CreatedDate = DateTime.Now,
+                ModifiedByName = "InitialCreate",
+                ModifiedDate = DateTime.Now,
+                Note = "Admin Rolüdür."
             });
-            
         }
     }
 }

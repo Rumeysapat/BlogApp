@@ -1,14 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Blog.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-
-namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
+namespace Blog.Data.Concrete.EntityFramework.Mappings
 {
     public class CommentMap:IEntityTypeConfiguration<Comment>
     {
@@ -29,7 +23,7 @@ namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(c => c.IsDeleted).IsRequired();
             builder.Property(c => c.Note).HasMaxLength(500);
             builder.ToTable("Comments");
-            
+
             builder.HasData(
                 new Comment
                 {
