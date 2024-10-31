@@ -5,5 +5,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <ItemGroup>
+
+    <ProjectReference Include="..\Blog.Shared\Blog.Shared.csproj" />
+       <ProjectReference Include="..\Blog.Entities\Blog.Entities.csproj" />
+          <ProjectReference Include="..\Blog.Data\Blog.Data.csproj" />
+    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
 
 </Project>

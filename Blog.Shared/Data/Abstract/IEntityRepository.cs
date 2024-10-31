@@ -7,8 +7,8 @@ namespace Blog.Shared.Data.Abstract
 {
     public interface IEntityRepository<T> where T : class, IEntity,new()  //veri tabanındaki nesneleri new leyebilirim.
     {
-        Task<T> GetAsync(Expression<Func<T,bool>> predicate,Expression<Func<T,object>>[]includeProperties);
-        // var kullanici=repository.GetAsycn(k=>k.Id==15);
+        Task<T> GetAsync(Expression<Func<T,bool>> predicate,params Expression<Func<T,object>>[] includeProperties); // var kullanici = repository.GetAsync(k=>k.Id==15);
+
 
         Task<IList<T>> GetAllAsync(Expression<Func<T,bool>> predicate =null,params Expression<Func<T,object>>[]includeProperties );//repository.GetAllAsync(m=>m.Category.Name=="C#", m=>m.Category);
 

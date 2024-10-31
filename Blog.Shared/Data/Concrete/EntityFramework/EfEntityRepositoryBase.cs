@@ -59,25 +59,26 @@ namespace ProgrammersBlog.Blog.Shared.Data.Concrete.EntityFramework
         }
 
 
-        public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate, Expression<Func<TEntity, object>>[] includeProperties)
-        {
-            IQueryable<TEntity> query = _context.Set<TEntity>();
+   public async Task<TEntity> GetAsync(
+    Expression<Func<TEntity, bool>> predicate,
+    params Expression<Func<TEntity, object>>[] includeProperties)
+{
+    IQueryable<TEntity> query = _context.Set<TEntity>();
 
-            if (predicate != null)
-            {
-                query = query.Where(predicate);
-            }
+    // Predicate'e göre filtre uygula
+    query = query.Where(predicate);
+
+    // İlişkili verileri dahil etmek için includeProperties parametresini kullan
+    foreach (var includeProperty in includeProperties)
+    {
+        query = query.Include(includeProperty);
+    }
+
+    // İlk eşleşen kaydı getir
+    return await query.FirstOrDefaultAsync();
+}
 
 
-            if (includeProperties.Any())
-            {
-                foreach (var includeProperty in includeProperties)
-                {
-                    query = query.Include(includeProperty);
-                }
-            }
-            return await query.SingleOrDefaultAsync();
-        }
 
         public async Task UpdateAsync(TEntity entity)
         {

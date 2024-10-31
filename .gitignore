@@ -74,3 +74,117 @@ obj/
 # Node.js için önbellek ve modül dosyaları
 node_modules/
 npm-debug.log*
+
+# Visual Studio ve .NET ile ilgili geçici dosyalar
+.vscode/
+.vs/
+bin/
+obj/
+out/
+
+# Kullanıcı tarafından oluşturulan dosyalar
+*.suo
+*.user
+*.userosscache
+*.sln.ide
+*.sln.docstates
+
+# Yedek dosyalar
+*~
+*.tmp
+
+# Paket yöneticileri
+packages/
+*.nupkg
+*.snupkg
+
+# ASP.NET Core uygulamaları için
+wwwroot/lib/
+wwwroot/css/
+wwwroot/js/
+wwwroot/uploads/
+wwwroot/images/
+wwwroot/docs/
+
+# Test dosyaları
+testResults/
+*.TestResult.xml
+
+# Log dosyaları
+*.log
+
+# Secret ve yapılandırma dosyaları
+appsettings.Development.json
+appsettings.Production.json
+appsettings.json
+*.config
+*.json
+
+# Docker ile ilgili dosyalar
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# NuGet Cache
+*.nupkg
+.nuget/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Mac OS X için
+.DS_Store
+
+# Windows için
+Thumbs.db
+ehthumbs.db
+
+# Linux için
+*~
+
+# User Secrets
+secrets.json
+.vs/
+appsettings.json
+appsettings.Development.json
+appsettings.Production.json
+obj/
+*.user
+*.suo
+*.sln.docstates
+binaries/
+artifacts/ 
+.vs/
+bin/
+obj/
+launchSettings.json
+.vscode
+
+
+# SQLite veritabanı dosyalarını ignore et
+*.db
+*.db-shm
+*.db-wal
+
+
+# libman klasörü
+lib
+
+# libman klasöründeki tüm .log dosyaları
+lib/*.log
+
+# libman klasörü altındaki tüm .tmp uzantılı dosyalar
+lib/**/*.tmp
+
+
+
+
+
+
+
+
+
+
+
