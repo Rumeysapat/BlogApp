@@ -1,14 +1,25 @@
 
+using Blog.Data.Concrete.EntityFramework.Context;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using ProgrammersBlog.Services.AutoMapper.Profiles;
 using ProgrammersBlog.Services.Extensions;
 
 
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ProgrammersBlogContext>(options =>
+    options.UseSqlite("Data Source=../Blog.Data/blog.db")); // Blog.db dosyasının yolu
 builder.Services.LoadMyServices();
 // Add services to the container.
+
+
+
+
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(typeof(CategoryProfile),typeof(ArticleProfile));
+
+
 
 
 var app = builder.Build();
